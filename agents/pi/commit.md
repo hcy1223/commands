@@ -1,6 +1,6 @@
 ---
 description: Commit staged changes
-argument-hint: <type(scope): subject>
+argument-hint: "[type(scope): subject]"
 ---
 
 Please create a git commit from staged changes only.
@@ -8,7 +8,7 @@ Please create a git commit from staged changes only.
 Use `$ARGUMENTS` as input message and normalize it to Conventional Commits before committing.
 
 - Run `git diff --cached --quiet`; if no staged changes, stop and tell user to run `git add <file>` or `git add -p`.
-- If `$ARGUMENTS` is empty, stop and ask for a message like `/commit feat: add user api`.
+- If `$ARGUMENTS` is empty, analyze the staged changes via `git diff --cached` and `git diff --cached --stat`, then generate a Conventional Commits message that summarizes the changes. Commit with that generated message directly. Do NOT ask the user for a message.
 - Allowed types: `feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert`.
 - If `$ARGUMENTS` already matches `type(scope)?: subject`, keep it as-is.
 - If type is missing, infer and prepend one type:
