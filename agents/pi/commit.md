@@ -18,7 +18,7 @@ Use `$ARGUMENTS` as input message and normalize it to Conventional Commits befor
   - `docs`: docs-only changes.
   - `test`: tests-only changes.
   - otherwise use `chore`.
-- Commit with normalized message: `git commit -m "<normalized_message>"`.
+- Commit with normalized message: `git commit -m "<normalized_message>" --author="Pi Bot <pi@bot.local>"`.
 - On success, show:
   - `git log -1 --pretty=format:'%h %s'`
   - commit file tree via `git show --name-status --pretty='' HEAD`
